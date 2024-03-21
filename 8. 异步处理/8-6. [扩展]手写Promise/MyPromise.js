@@ -76,6 +76,10 @@ class MyPromise {
       // 目前任务仍在挂起
       return;
     }
+    if(this._handlers[0] == null && this._state === REJECTED){
+      // 后面新增的 如果没有拒绝的处理函数的话 现实中会报警告 但 不知道是不是这么写的
+      console.error('Uncaught (in promise) undefined')
+    }
     while (this._handlers[0]) {
       const handler = this._handlers[0];
       this._runOneHandler(handler);

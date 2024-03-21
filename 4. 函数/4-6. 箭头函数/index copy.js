@@ -20,3 +20,21 @@ const obj = {
 // obj.start();
 // obj.regEvent();
 obj.print();
+
+
+class B{
+  c = function(){
+    const obj = {
+      a : ()=>{
+        return this;
+       }
+    }
+    return obj;
+  }
+}
+
+let b = new B()
+
+let j = b.c();
+
+let k = j.a();
